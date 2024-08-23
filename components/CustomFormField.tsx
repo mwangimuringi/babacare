@@ -2,11 +2,12 @@
 /* eslint-disable no-unused-vars */
 import { E164Number } from "libphonenumber-js/core";
 import Image from "next/image";
-import ReactDatePicker from "react-datepicker";
+// import ReactDatePicker from "react-datepicker";
 import { Control } from "react-hook-form";
-import PhoneInput from "react-phone-number-input";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
-import { Checkbox } from "./ui/checkbox";
+// import { Checkbox } from "./ui/checkbox";
 import {
   FormControl,
   FormField,
@@ -16,7 +17,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
-import { Textarea } from "./ui/textarea";
+// import { Textarea } from "./ui/textarea";
 import { CustomProps, FormFieldType } from "@/types";
 
 const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
@@ -57,7 +58,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <FormControl>
           <PhoneInput
-            defaultCountry="US"
+            defaultCountry="KE"
             placeholder={props.placeholder}
             international
             withCountryCallingCode
