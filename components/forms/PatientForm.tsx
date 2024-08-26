@@ -21,6 +21,7 @@ import { UserFormValidation } from "@/lib/validation";
 import { useState } from "react";
 import { create } from "domain";
 import { useRouter } from "next/navigation";
+import { createUser } from "@/lib/actions/patient.actions";
 
 
 const PatientForm = () => {
@@ -50,10 +51,10 @@ const PatientForm = () => {
 
       // const userData  = await {name, email ,phone};
 
-      // const user = await createUser(userData);
-      // if (user) {
-      //   router.push(`/patients/${user.$id}/register`); //template strng as userId will be dynamically coming from appwrite db
-      // }
+      const user = await createUser(userData);
+      if (user) {
+        router.push(`/patients/${user.$id}/register`); //template strng as userId will be dynamically coming from appwrite db
+      }
     } catch (error) {
       console.log(error);
     }
