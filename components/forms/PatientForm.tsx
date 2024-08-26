@@ -19,10 +19,13 @@ import { FormFieldType } from "@/types";
 import SubmitButton from "../SubmitButton";
 import { UserFormValidation } from "@/lib/validation";
 import { useState } from "react";
+import { create } from "domain";
+import { useRouter } from "next/navigation";
 
 
 const PatientForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof UserFormValidation>>({
@@ -35,21 +38,22 @@ const PatientForm = () => {
   });
 
   // 2. Define a submit handler.
-  const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
+ async function onSubmit({name ,email ,phone}: z.infer<typeof UserFormValidation>) {
     setIsLoading(true);
 
     try {
-      const user = {
-        name: values.name,
-        email: values.email,
-        phone: values.phone,
-      };
+      // // const user = {
+      // //   name: values.name,
+      // //   email: values.email,
+      // //   phone: values.phone,
+      // // };
 
-      const newUser = await createUser(user);
+      // const userData  = await {name, email ,phone};
 
-      if (newUser) {
-        router.push(`/patients/${newUser.$id}/register`);
-      }
+      // const user = await createUser(userData);
+      // if (user) {
+      //   router.push(`/patients/${user.$id}/register`); //template strng as userId will be dynamically coming from appwrite db
+      // }
     } catch (error) {
       console.log(error);
     }
