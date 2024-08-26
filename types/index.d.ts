@@ -52,6 +52,7 @@ declare type SearchParamProps = {
     appointmentId: string;
     userId: string;
     timeZone: string;
-    appointment: Appointment;
+    appointment: Appointment;  
+    
     type: string;
   };
