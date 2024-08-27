@@ -53,7 +53,7 @@ const PatientForm = () => {
 
       const user = await createUser(userData);
       if (user) {
-        router.push(`/patients/${user.$id}/register`); //template strng as userId will be dynamically coming from appwrite db
+        router.push(`/patients/${user.$id}/register`); //template string as userId will be dynamically coming from appwrite db
       }
     } catch (error) {
       console.log(error);
