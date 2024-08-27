@@ -1,14 +1,20 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import { getPatient, getUser } from "@/lib/actions/patient.actions";
+import { getUser } from "@/lib/actions/patient.actions";
 import RegisterForm from "@/components/forms/RegisterForm";
+import { SearchParamProps } from "@/types/index.d"; // Correct import path
 
-const Register = async ({ params: { userId } }: SearchParamProps) => {
+const Register = async ({ params }: SearchParamProps) => {
+  // Destructure userId from params
+  const { userId } = params;
+
+  // Fetch user data
   const user = await getUser(userId);
-  const patient = await getPatient(userId);
 
-  if (patient) redirect(`/patients/${userId}/new-appointment`);
+  // Optional: Redirect if a patient is already registered
+  // const patient = await getPatient(userId);
+  // if (patient) redirect(`/patients/${userId}/new-appointment`);
 
   return (
     <div className="flex h-screen max-h-screen">
@@ -18,10 +24,11 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
             src={`/assets/icons/logo-full.svg`}
             height={1000}
             width={1000}
-            alt="patient"
+            alt="logo"
             className="mb-12 h-10 w-fit"
           />
 
+          {/* Render the RegisterForm component with the fetched user */}
           <RegisterForm user={user} />
 
           <p className="copyright py-12">© 2024 BabaCare</p>
@@ -32,7 +39,7 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
         src="/assets/images/register-img.png"
         height={1000}
         width={1000}
-        alt="patient"
+        alt="register"
         className="side-img max-w-[390px]"
       />
     </div>

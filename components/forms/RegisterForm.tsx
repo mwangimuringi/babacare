@@ -25,6 +25,7 @@ import "react-phone-number-input/style.css";
 import FileUploader from "../FileUploader";
 import CustomFormField from "../CustomFormField";
 import { FormFieldType } from "@/types";
+import SubmitButton from "../SubmitButton";
 
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
@@ -49,6 +50,7 @@ const RegisterForm = ({ user }: { user: User }) => {
       values.identificationDocument &&
       values.identificationDocument?.length > 0
     ) {
+                //blob is special file which browser can read
       const blobFile = new Blob([values.identificationDocument[0]], {
         type: values.identificationDocument[0].type,
       });
@@ -374,7 +376,6 @@ const RegisterForm = ({ user }: { user: User }) => {
             privacy policy"
           />
         </section>
-
         <SubmitButton isLoading={isLoading}>Submit and Continue</SubmitButton>
       </form>
     </Form>

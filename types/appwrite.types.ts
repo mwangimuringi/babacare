@@ -1,3 +1,5 @@
+// appwrite.types.ts
+
 import { Models } from "node-appwrite";
 
 // Define and export Gender and Status types
@@ -25,7 +27,7 @@ export interface Patient extends Models.Document {
   pastMedicalHistory: string | undefined;
   identificationType: string | undefined;
   identificationNumber: string | undefined;
-  identificationDocument: FormData | undefined;
+  identificationDocument: File | undefined;  // Changed from FormData to File
   privacyConsent: boolean;
 }
 
@@ -47,3 +49,25 @@ export type CreateUserParams = {
   email: string;
   phone: string;
 };
+
+// Export RegisterUserParams as a type
+export interface RegisterUserParams extends CreateUserParams {
+  userId: string;
+  birthDate: Date;
+  gender: Gender;
+  address: string;
+  occupation: string;
+  emergencyContactName: string;
+  emergencyContactNumber: string;
+  primaryPhysician: string;
+  insuranceProvider: string;
+  insurancePolicyNumber: string;
+  allergies: string | undefined;
+  currentMedication: string | undefined;
+  familyMedicalHistory: string | undefined;
+  pastMedicalHistory: string | undefined;
+  identificationType: string | undefined;
+  identificationNumber: string | undefined;
+  identificationDocument: File | undefined;  // Changed from FormData to File
+  privacyConsent: boolean;
+}
