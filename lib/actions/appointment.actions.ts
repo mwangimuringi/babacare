@@ -146,7 +146,7 @@ export const updateAppointment = async ({
   }
 };
 
-// GET APPOINTMENT
+// GET APPOINTMENT . to fetch patient data for booking doc
 export const getAppointment = async (appointmentId: string) => {
   try {
     const appointment = await databases.getDocument(
