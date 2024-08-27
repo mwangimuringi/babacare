@@ -1,17 +1,12 @@
 // Import the necessary types from appwrite.types.ts
-import { Appointment, Gender, Status } from './appwrite.types';
+import { Appointment, Gender, Status, CreateUserParams } from './appwrite.types';
 
-// Declare other types and interfaces
+// Declare global types and interfaces
+
 declare type SearchParamProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-
-declare interface CreateUserParams {
-  name: string;
-  email: string;
-  phone: string;
-}
 
 declare interface User extends CreateUserParams {
   $id: string;

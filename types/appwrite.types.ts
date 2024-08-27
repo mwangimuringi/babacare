@@ -1,12 +1,10 @@
-// appwrite.types.ts
-
 import { Models } from "node-appwrite";
 
 // Define and export Gender and Status types
 export type Gender = "Male" | "Female" | "Other";
 export type Status = "pending" | "scheduled" | "cancelled";
 
-// Define the Patient type
+// Define and export the Patient type
 export interface Patient extends Models.Document {
   userId: string;
   name: string;
@@ -31,7 +29,7 @@ export interface Patient extends Models.Document {
   privacyConsent: boolean;
 }
 
-// Define the Appointment type
+// Define and export the Appointment type
 export interface Appointment extends Models.Document {
   patient: Patient;
   schedule: Date;
@@ -42,3 +40,10 @@ export interface Appointment extends Models.Document {
   userId: string;
   cancellationReason: string | null;
 }
+
+// Export CreateUserParams as a type
+export type CreateUserParams = {
+  name: string;
+  email: string;
+  phone: string;
+};
