@@ -30,3 +30,8 @@ export interface ButtonProps {
   className?: string;
   children: React.ReactNode;
 }
+
+export type FileUploaderProps = {
+  files: File[] | undefined;
+  onChange: (files: File[]) => void;
+};

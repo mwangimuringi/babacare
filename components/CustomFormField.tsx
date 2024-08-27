@@ -1,25 +1,26 @@
-
 /* eslint-disable no-unused-vars */
 import { E164Number } from "libphonenumber-js/core";
 import Image from "next/image";
-// import ReactDatePicker from "react-datepicker";
+import ReactDatePicker from "react-datepicker";
 import { Control } from "react-hook-form";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
-// import { Checkbox } from "./ui/checkbox";
+// Import your custom components
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "./ui/form";
-import { Input } from "./ui/input";
-// import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
-// import { Textarea } from "./ui/textarea";
-import { CustomProps, FormFieldType } from "@/types";
+} from './ui/form';
+import { Input } from './ui/input';
+import { Checkbox } from './ui/checkbox'; 
+import { Select, SelectContent, SelectTrigger, SelectValue } from './ui/select'; 
+import { Textarea } from './ui/textarea';
+import { CustomProps, FormFieldType } from '@/types';
 
+// RenderInput Component
 const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (props.fieldType) {
     case FormFieldType.INPUT:
@@ -30,7 +31,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               src={props.iconSrc}
               height={24}
               width={24}
-              alt={props.iconAlt || "icon"}
+              alt={props.iconAlt || 'icon'}
               className="ml-2"
             />
           )}
@@ -87,7 +88,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           <Image
-            src="/assets/icons/calendar.svg"
+            src={`/assets/icons/calendar.svg`}
             height={24}
             width={24}
             alt="user"
@@ -97,9 +98,11 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             <ReactDatePicker
               showTimeSelect={props.showTimeSelect ?? false}
               selected={field.value}
-              onChange={(date: Date) => field.onChange(date)}
+              onChange={(date: Date | null, event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement> | undefined) => {
+                field.onChange(date); // Pass the date value to field.onChange
+              }}
               timeInputLabel="Time:"
-              dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
+              dateFormat={props.dateFormat ?? 'MM/dd/yyyy'}
               wrapperClassName="date-picker"
             />
           </FormControl>
@@ -127,6 +130,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
   }
 };
 
+// CustomFormField Component
 const CustomFormField = (props: CustomProps) => {
   const { control, name, label } = props;
 
