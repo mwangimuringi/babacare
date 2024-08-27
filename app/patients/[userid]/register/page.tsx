@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 import { getUser } from "@/lib/actions/patient.actions";
 import RegisterForm from "@/components/forms/RegisterForm";
-import { SearchParamProps } from "@/types/index.d"; // Correct import path
+import { SearchParamProps } from "@/types/index.d"; 
 
 const Register = async ({ params }: SearchParamProps) => {
   // Destructure userId from params
