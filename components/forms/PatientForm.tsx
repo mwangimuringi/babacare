@@ -49,7 +49,7 @@ const PatientForm = () => {
       // //   phone: values.phone,
       // // };
 
-      // const userData  = await {name, email ,phone};
+      const userData  = await {name, email ,phone};
 
       const user = await createUser(userData);
       if (user) {
