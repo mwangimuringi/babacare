@@ -34,7 +34,7 @@ export interface RegisterUserParams extends CreateUserParams {
   pastMedicalHistory?: string;
   identificationType?: string;
   identificationNumber?: string;
-  identificationDocument?: File; // Updated from FormData to File
+  identificationDocument?: File; // Updated to File
   privacyConsent: boolean;
 }
 

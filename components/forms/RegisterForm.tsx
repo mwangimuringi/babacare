@@ -26,6 +26,9 @@ import FileUploader from "../FileUploader";
 import CustomFormField from "../CustomFormField";
 import { FormFieldType } from "@/types";
 import SubmitButton from "../SubmitButton";
+import { RegisterUserParams } from "@/types/appwrite.types";
+import { User } from "@/types/index.d";
+
 
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
@@ -44,24 +47,15 @@ const RegisterForm = ({ user }: { user: User }) => {
   const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
     setIsLoading(true);
 
-    // Store file info in form data as
-    let formData;
-    if (
-      values.identificationDocument &&
-      values.identificationDocument?.length > 0
-    ) {
-                //blob is special file which browser can read
-      const blobFile = new Blob([values.identificationDocument[0]], {
-        type: values.identificationDocument[0].type,
-      });
+    // Extract the file if it exists
+    let identificationDocument: File | undefined;
 
-      formData = new FormData();
-      formData.append("blobFile", blobFile);
-      formData.append("fileName", values.identificationDocument[0].name);
+    if (values.identificationDocument && values.identificationDocument.length > 0) {
+      identificationDocument = values.identificationDocument[0]; // This should be a File
     }
 
     try {
-      const patient = {
+      const patient: RegisterUserParams = {
         userId: user.$id,
         name: values.name,
         email: values.email,
@@ -81,30 +75,28 @@ const RegisterForm = ({ user }: { user: User }) => {
         pastMedicalHistory: values.pastMedicalHistory,
         identificationType: values.identificationType,
         identificationNumber: values.identificationNumber,
-        identificationDocument: values.identificationDocument
-          ? formData
-          : undefined,
+        identificationDocument, // Ensure this is a File or undefined
         privacyConsent: values.privacyConsent,
       };
 
+      // Call your API function with the correctly typed patient object
       const newPatient = await registerPatient(patient);
 
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
+      } else {
+        console.error("Failed to create new patient.");
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error during patient registration:", error);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex-1 space-y-12"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-12">
         <section className="space-y-4">
           <h1 className="header">Welcome 👋</h1>
           <p className="text-dark-700">Let us know more about yourself.</p>
@@ -116,7 +108,6 @@ const RegisterForm = ({ user }: { user: User }) => {
           </div>
 
           {/* NAME */}
-
           <CustomFormField
             fieldType={FormFieldType.INPUT}
             control={form.control}
@@ -137,7 +128,6 @@ const RegisterForm = ({ user }: { user: User }) => {
               iconSrc="/assets/icons/email.svg"
               iconAlt="email"
             />
-
             <CustomFormField
               fieldType={FormFieldType.PHONE_INPUT}
               control={form.control}
@@ -155,7 +145,6 @@ const RegisterForm = ({ user }: { user: User }) => {
               name="birthDate"
               label="Date of birth"
             />
-
             <CustomFormField
               fieldType={FormFieldType.SKELETON}
               control={form.control}
@@ -191,13 +180,12 @@ const RegisterForm = ({ user }: { user: User }) => {
               label="Address"
               placeholder="14th street, Eldoret, Eld - 1001"
             />
-
             <CustomFormField
               fieldType={FormFieldType.INPUT}
               control={form.control}
               name="occupation"
               label="Occupation"
-              placeholder=" Software Engineer"
+              placeholder="Software Engineer"
             />
           </div>
 
@@ -210,7 +198,6 @@ const RegisterForm = ({ user }: { user: User }) => {
               label="Emergency contact name"
               placeholder="Guardian's name"
             />
-
             <CustomFormField
               fieldType={FormFieldType.PHONE_INPUT}
               control={form.control}
@@ -259,7 +246,6 @@ const RegisterForm = ({ user }: { user: User }) => {
               label="Insurance provider"
               placeholder="SHIF"
             />
-
             <CustomFormField
               fieldType={FormFieldType.INPUT}
               control={form.control}
@@ -278,7 +264,6 @@ const RegisterForm = ({ user }: { user: User }) => {
               label="Allergies (if any)"
               placeholder="Peanuts, Penicillin, Pollen"
             />
-
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
@@ -294,10 +279,9 @@ const RegisterForm = ({ user }: { user: User }) => {
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
               name="familyMedicalHistory"
-              label=" Family medical history (if relevant)"
+              label="Family medical history (if relevant)"
               placeholder="Mother had brain cancer, Father has hypertension"
             />
-
             <CustomFormField
               fieldType={FormFieldType.TEXTAREA}
               control={form.control}
@@ -310,7 +294,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Identification and Verfication</h2>
+            <h2 className="sub-header">Identification and Verification</h2>
           </div>
 
           <CustomFormField
@@ -364,18 +348,17 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="disclosureConsent"
-            label="I consent to the use and disclosure of my health
-            information for treatment purposes."
+            label="I consent to the use and disclosure of my health information for treatment purposes."
           />
 
           <CustomFormField
             fieldType={FormFieldType.CHECKBOX}
             control={form.control}
             name="privacyConsent"
-            label="I acknowledge that I have reviewed and agree to the
-            privacy policy"
+            label="I acknowledge that I have reviewed and agree to the privacy policy."
           />
         </section>
+
         <SubmitButton isLoading={isLoading}>Submit and Continue</SubmitButton>
       </form>
     </Form>
