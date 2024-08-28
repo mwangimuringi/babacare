@@ -7,7 +7,7 @@ import { Doctors } from "@/constants";
 import { formatDateTime } from "@/lib/utils";
 import { Appointment } from "@/types/appwrite.types";
 
-// import { AppointmentModal } from "../AppointmentModal";
+import { AppointmentModal } from "../AppointmentModal";
  import { StatusBadge } from "../StatusBadge";
 
 export const columns: ColumnDef<Appointment>[] = [
@@ -51,7 +51,6 @@ export const columns: ColumnDef<Appointment>[] = [
       );
     },
   },
-
         //finding doctor
   {
     accessorKey: "primaryPhysician",
