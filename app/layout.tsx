@@ -11,7 +11,7 @@ const fontSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Baba care",
+  title: "BabaCare",
   description: "A health care management system",
 };
 
