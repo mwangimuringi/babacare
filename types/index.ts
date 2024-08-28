@@ -35,3 +35,11 @@ export type FileUploaderProps = {
   files: File[] | undefined;
   onChange: (files: File[]) => void;
 };
+
+ export type StatCardProps = {
+  type: "appointments" | "pending" | "cancelled";
+  count: number;
+  label: string;
+  icon: string;
+};
+
