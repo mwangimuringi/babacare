@@ -52,6 +52,19 @@ export type UpdateAppointmentParams = {
   appointmentId: string;
   userId: string;
   timeZone: string;
-  appointment: Appointment;  
-  type: string;
+  appointment: Partial<Appointment>; // Use Partial if only some fields are updated
+  type: "create" | "schedule" | "cancel";
 };
+
+// Ensure Appointment includes all fields
+export interface Appointment {
+  userId: string;
+  patient: string;
+  primaryPhysician: string;
+  reason: string;
+  schedule: Date;
+  status: Status;
+  note?: string;
+  cancellationReason?: string;
+  // include other fields as needed
+}

@@ -33,6 +33,7 @@ export const createAppointment = async (
     return parseStringify(newAppointment);
   } catch (error) {
     console.error("An error occurred while creating a new appointment:", error);
+    throw error; // Ensure errors are thrown to be handled by the caller
   }
 };
 
@@ -81,6 +82,7 @@ export const getRecentAppointmentList = async () => {
       "An error occurred while retrieving the recent appointments:",
       error
     );
+    throw error; // Ensure errors are thrown to be handled by the caller
   }
 };
 
@@ -97,6 +99,7 @@ export const sendSMSNotification = async (userId: string, content: string) => {
     return parseStringify(message);
   } catch (error) {
     console.error("An error occurred while sending sms:", error);
+    throw error; // Ensure errors are thrown to be handled by the caller
   }
 };
 
@@ -109,35 +112,36 @@ export const updateAppointment = async ({
   type,
 }: UpdateAppointmentParams) => {
   try {
-    // Update appointment to scheduled -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#updateDocument
+    // Ensure `appointment` has all required fields, or use Partial<Appointment> if applicable
     const updatedAppointment = await databases.updateDocument(
       DATABASE_ID!,
       APPOINTMENT_COLLECTION_ID!,
       appointmentId,
-      appointment
+      appointment as Appointment // Casting to `Appointment` or ensure all fields are present
     );
 
-    if (!updatedAppointment) throw Error;
+    if (!updatedAppointment) throw new Error("Failed to update appointment");
 
+    // Construct the SMS message
+    const formattedDateTime = formatDateTime(appointment.schedule!, timeZone).dateTime;
     const smsMessage = `Greetings from BabaCare. ${
       type === "schedule"
-        ? `Your appointment is confirmed for ${
-            formatDateTime(appointment.schedule!, timeZone).dateTime
-          } with Dr. ${appointment.primaryPhysician}`
-        : `We regret to inform that your appointment for ${
-            formatDateTime(appointment.schedule!, timeZone).dateTime
-          } is cancelled. Reason:  ${appointment.cancellationReason}`
-    }.`;
+        ? `Your appointment is confirmed for ${formattedDateTime} with Dr. ${appointment.primaryPhysician}.`
+        : `We regret to inform that your appointment for ${formattedDateTime} is cancelled. Reason: ${appointment.cancellationReason}.`
+    }`;
+
+    // Send SMS notification
     await sendSMSNotification(userId, smsMessage);
 
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
   } catch (error) {
-    console.error("An error occurred while scheduling an appointment:", error);
+    console.error("An error occurred while updating the appointment:", error);
+    throw error; // Ensure errors are thrown to be handled by the caller
   }
 };
 
-// GET APPOINTMENT . to fetch patient data for booking doc
+// GET APPOINTMENT
 export const getAppointment = async (appointmentId: string) => {
   try {
     const appointment = await databases.getDocument(
@@ -149,8 +153,9 @@ export const getAppointment = async (appointmentId: string) => {
     return parseStringify(appointment);
   } catch (error) {
     console.error(
-      "An error occurred while retrieving the existing patient:",
+      "An error occurred while retrieving the existing appointment:",
       error
     );
+    throw error; // Ensure errors are thrown to be handled by the caller
   }
 };

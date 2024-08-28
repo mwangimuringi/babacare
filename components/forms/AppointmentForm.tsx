@@ -41,10 +41,8 @@ export const AppointmentForm = ({
   const form = useForm<z.infer<typeof AppointmentFormValidation>>({
     resolver: zodResolver(AppointmentFormValidation),
     defaultValues: {
-      primaryPhysician: appointment ? appointment?.primaryPhysician : "",
-      schedule: appointment
-        ? new Date(appointment?.schedule!)
-        : new Date(Date.now()),
+      primaryPhysician: appointment ? appointment.primaryPhysician : "",
+      schedule: appointment ? new Date(appointment.schedule) : new Date(Date.now()),
       reason: appointment ? appointment.reason : "",
       note: appointment?.note || "",
       cancellationReason: appointment?.cancellationReason || "",
@@ -57,6 +55,8 @@ export const AppointmentForm = ({
     setIsLoading(true);
 
     let status;
+    let timeZone = "America/New_York"; // Replace with your logic to determine time zone
+
     switch (type) {
       case "schedule":
         status = "scheduled";
@@ -84,14 +84,13 @@ export const AppointmentForm = ({
 
         if (newAppointment) {
           form.reset();
-          router.push(
-            `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`
-          );
+          router.push(`/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`);
         }
-      } else {
+      } else if (appointment) {
         const appointmentToUpdate = {
           userId,
-          appointmentId: appointment?.$id!,
+          appointmentId: appointment.$id!,
+          timeZone, // Ensure `timeZone` is included
           appointment: {
             primaryPhysician: values.primaryPhysician,
             schedule: new Date(values.schedule),
@@ -109,8 +108,9 @@ export const AppointmentForm = ({
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
+
     setIsLoading(false);
   };
 
@@ -123,7 +123,7 @@ export const AppointmentForm = ({
       buttonLabel = "Schedule Appointment";
       break;
     default:
-      buttonLabel = "Submit Apppointment";
+      buttonLabel = "Submit Appointment";
   }
 
   return (
@@ -132,9 +132,7 @@ export const AppointmentForm = ({
         {type === "create" && (
           <section className="mb-12 space-y-4">
             <h1 className="header">New Appointment</h1>
-            <p className="text-dark-700">
-              Request a new appointment in 10 seconds.
-            </p>
+            <p className="text-dark-700">Request a new appointment in 10 seconds.</p>
           </section>
         )}
 
@@ -172,15 +170,13 @@ export const AppointmentForm = ({
               dateFormat="MM/dd/yyyy  -  h:mm aa"
             />
 
-            <div
-              className={`flex flex-col gap-6  ${type === "create" && "xl:flex-row"}`}
-            >
+            <div className={`flex flex-col gap-6 ${type === "create" && "xl:flex-row"}`}>
               <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="reason"
                 label="Appointment reason"
-                placeholder="Annual montly check-up"
+                placeholder="Annual monthly check-up"
                 disabled={type === "schedule"}
               />
 
