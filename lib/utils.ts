@@ -10,8 +10,9 @@ export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
 // FORMAT DATE TIME
-export const formatDateTime = (dateString: Date | string) => {
+export const formatDateTime = (dateString: Date | string, timeZone: string = 'Africa/Nairobi') => {
   const dateTimeOptions: Intl.DateTimeFormatOptions = {
+    timeZone,
     // weekday: "short", // abbreviated weekday name (e.g., 'Mon')
     month: "short", // abbreviated month name (e.g., 'Oct')
     day: "numeric", // numeric day of the month (e.g., '25')
@@ -22,6 +23,7 @@ export const formatDateTime = (dateString: Date | string) => {
   };
 
   const dateDayOptions: Intl.DateTimeFormatOptions = {
+    timeZone,
     weekday: "short", // abbreviated weekday name (e.g., 'Mon')
     year: "numeric", // numeric year (e.g., '2023')
     month: "2-digit", // abbreviated month name (e.g., 'Oct')
@@ -29,12 +31,14 @@ export const formatDateTime = (dateString: Date | string) => {
   };
 
   const dateOptions: Intl.DateTimeFormatOptions = {
+    timeZone,
     month: "short", // abbreviated month name (e.g., 'Oct')
     year: "numeric", // numeric year (e.g., '2023')
     day: "numeric", // numeric day of the month (e.g., '25')
   };
 
   const timeOptions: Intl.DateTimeFormatOptions = {
+    timeZone,
     hour: "numeric", // numeric hour (e.g., '8')
     minute: "numeric", // numeric minute (e.g., '30')
     hour12: true, // use 12-hour clock (true) or 24-hour clock (false)

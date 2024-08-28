@@ -1,5 +1,3 @@
-"use client";
-
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 
@@ -8,7 +6,9 @@ import { formatDateTime } from "@/lib/utils";
 import { Appointment } from "@/types/appwrite.types";
 
 import { AppointmentModal } from "../AppointmentModal";
- import { StatusBadge } from "../StatusBadge";
+import { StatusBadge } from "../StatusBadge";
+
+// No need to pass timeZone explicitly if the default is set in formatDateTime
 
 export const columns: ColumnDef<Appointment>[] = [
   {
@@ -17,8 +17,6 @@ export const columns: ColumnDef<Appointment>[] = [
       return <p className="text-14-medium ">{row.index + 1}</p>;
     },
   },
-
-         //adding a patient in row
   {
     accessorKey: "patient",
     header: "Patient",
@@ -51,13 +49,11 @@ export const columns: ColumnDef<Appointment>[] = [
       );
     },
   },
-        //finding doctor
   {
     accessorKey: "primaryPhysician",
     header: "Doctor",
     cell: ({ row }) => {
       const appointment = row.original;
-
       const doctor = Doctors.find(
         (doctor) => doctor.name === appointment.primaryPhysician
       );
@@ -81,7 +77,6 @@ export const columns: ColumnDef<Appointment>[] = [
     header: () => <div className="pl-4">Actions</div>,
     cell: ({ row }) => {
       const appointment = row.original;
-
       return (
         <div className="flex gap-1">
           <AppointmentModal

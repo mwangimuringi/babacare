@@ -1,59 +1,47 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import CustomFormField from "../CustomFormField";
-import { FormFieldType } from "@/types";
-import SubmitButton from "../SubmitButton";
-import { UserFormValidation } from "@/lib/validation";
-import { useState } from "react";
-import { create } from "domain";
-import { useRouter } from "next/navigation";
+import { Form } from "@/components/ui/form";
 import { createUser } from "@/lib/actions/patient.actions";
+import { UserFormValidation } from "@/lib/validation";
 
+import "react-phone-number-input/style.css";
+import { FormFieldType } from "@/types";
+import CustomFormField from "../CustomFormField";
+import SubmitButton from "../SubmitButton";
 
-const PatientForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+export const PatientForm = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  // 1. Define your form.
   const form = useForm<z.infer<typeof UserFormValidation>>({
     resolver: zodResolver(UserFormValidation),
     defaultValues: {
       name: "",
       email: "",
-      phone: ""
+      phone: "",
     },
   });
 
-  // 2. Define a submit handler.
- async function onSubmit({name ,email ,phone}: z.infer<typeof UserFormValidation>) {
+  const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
     setIsLoading(true);
 
     try {
-      // // const user = {
-      // //   name: values.name,
-      // //   email: values.email,
-      // //   phone: values.phone,
-      // // };
+      const user = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+      };
 
-      const userData  = await {name, email ,phone};
+      const newUser = await createUser(user);
 
-      const user = await createUser(userData);
-      if (user) {
-        router.push(`/patients/${user.$id}/register`); //template string as userId will be dynamically coming from appwrite db
+      if (newUser) {
+        router.push(`/patients/${newUser.$id}/register`);
       }
     } catch (error) {
       console.log(error);
@@ -95,12 +83,11 @@ const PatientForm = () => {
           control={form.control}
           name="phone"
           label="Phone number"
-          placeholder="(254) 123 456 789"
+          placeholder="(555) 123-4567"
         />
+
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
   );
 };
-
-export default PatientForm;
