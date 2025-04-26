@@ -96,6 +96,8 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             className="ml-2"
           />
           <FormControl>
+
+            {/* Use the id prop here */}
             <ReactDatePicker
               id={props.id} // Use the id prop here
               showTimeSelect={props.showTimeSelect ?? false}
