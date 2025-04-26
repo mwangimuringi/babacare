@@ -16,7 +16,6 @@ const IdentificationSection = ({ control }: { control: Control<FormData> }) => (
         id="identificationType"
         fieldType={FormFieldType.SELECT}
         control={control}
-        
         name="identificationType"
         placeholder="Select identification type"
       />
