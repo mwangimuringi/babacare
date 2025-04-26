@@ -114,8 +114,6 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               wrapperClassName="date-picker"
             />
           </FormControl>
-
-          
         </div>
       );
     case FormFieldType.SELECT:
