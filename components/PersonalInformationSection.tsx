@@ -12,8 +12,6 @@ const PersonalInformationSection = ({ control }: { control: Control<FormData> })
       <h2 className="sub-header">Personal Information</h2>
     </div>
 
-
-
     <div>
       <Label htmlFor="name">Name</Label>
       <CustomFormField id="name" fieldType={FormFieldType.INPUT} control={control} name="name" placeholder="John Doe" />
