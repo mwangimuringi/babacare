@@ -103,7 +103,8 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               onChange={(
                 date: Date | null,
 
-                
+
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 event:
                   | React.MouseEvent<HTMLElement>
                   | React.KeyboardEvent<HTMLElement>
