@@ -15,6 +15,31 @@ const FeedbackForm = () => {
     console.log("Feedback submitted:", formData);
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!formData.rating || !formData.comments) {
+    alert('Please fill in all fields.');
+    return;
+  }
+  setIsSubmitting(true);
+
+  setTimeout(() => {
+    console.log('Feedback submitted:', formData);
+    setIsSubmitting(false);
+  }, 1000);
+};
+
+// Button
+<button
+  type="submit"
+  className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 w-full"
+  disabled={isSubmitting}
+>
+  {isSubmitting ? 'Submitting...' : 'Submit Feedback'}
+</button>
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
