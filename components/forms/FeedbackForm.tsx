@@ -1,20 +1,13 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useMemo } from "react";
-import { useForm, UseFormReturn } from "react-hook-form";
-import { z } from "zod";
+// components/forms/FeedbackForm.tsx
 
-import { getFeedbackSchema } from "@/lib/validation";
-import { Feedback } from "@/types/appwrite.types";
+import React from 'react';
 
-import CustomFormField from "../CustomFormField";
-import SubmitButton from "../SubmitButton";
-import { Form } from "../ui/form";
-import { FormFieldType } from "@/types";
+const FeedbackForm = () => {
+  return (
+    <div>
+      <h2>Feedback Form</h2>
+    </div>
+  );
+};
 
-/**
- * FeedbackForm Component
- * @param userId - ID of the user submitting the feedback
- * @param patientId - ID of the patient for whom the feedback is being submitted
- * @param type - Type of form (create, update)
- * @param feedback - Existing feedback data (optional)
+export default FeedbackForm;
