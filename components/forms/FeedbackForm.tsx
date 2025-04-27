@@ -16,10 +16,6 @@ const FeedbackForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  // Apply to inputs
-  <input type="number" name="rating" value={formData.rating} onChange={handleChange} required />
-  <textarea name="comments" value={formData.comments} onChange={handleChange} required />
-  
 
   return (
     <form>
