@@ -27,8 +27,9 @@ const handleSubmit = (e: React.FormEvent) => {
 
   setTimeout(() => {
     console.log('Feedback submitted:', formData);
+    setFormData({ rating: '', comments: '' });
     setIsSubmitting(false);
-  }, 1000);
+  }, 1000);  
 };
 
 // Button
