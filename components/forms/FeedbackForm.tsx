@@ -8,6 +8,10 @@ const FeedbackForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.rating || !formData.comments) {
+      alert('Please fill in all fields.');
+      return;
+    }
     console.log('Feedback submitted:', formData);
   };
 
