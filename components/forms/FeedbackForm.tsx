@@ -1,36 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const FeedbackForm = () => {
   const [formData, setFormData] = useState({
-    rating: '',
-    comments: ''
+    rating: "",
+    comments: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.rating || !formData.comments) {
-      alert('Please fill in all fields.');
+      alert("Please fill in all fields.");
       return;
     }
-    console.log('Feedback submitted:', formData);
+    console.log("Feedback submitted:", formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
 
   return (
-    <form>
-      <h2>Feedback Form</h2>
-      <label>Rating (1-5):</label>
-      <input type="number" name="rating" required />
+    <form className="space-y-4 p-4 bg-white rounded shadow-md w-full max-w-md mx-auto">
+      <h2 className="text-2xl font-bold mb-4 text-center">Feedback Form</h2>
 
-      <label>Comments:</label>
-      <textarea name="comments" required />
+      <div className="flex flex-col">
+        <label className="mb-1 font-semibold">Rating (1-5):</label>
+        <input
+          className="border p-2 rounded"
+          type="number"
+          name="rating"
+          min="1"
+          max="5"
+          value={formData.rating}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-      <button type="submit">Submit Feedback</button>
+      <div className="flex flex-col">
+        <label className="mb-1 font-semibold">Comments:</label>
+        <textarea
+          className="border p-2 rounded"
+          name="comments"
+          value={formData.comments}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <button
+        type="submit"
+        className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 w-full"
+      >
+        Submit Feedback
+      </button>
     </form>
   );
 };
