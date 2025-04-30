@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { Props } from 'next/script';
 
 const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
   const router = useRouter();
