@@ -1,22 +1,17 @@
-import React from 'react';
+import { useRouter } from 'next/router';
 
-type Props = {
-    amount: number;
-    cardEnding: string;
-    date: string;
-  };
-  
-const ConfirmationScreen = () => {
-    return (
-        <div className="mt-4 bg-gray-100 p-4 rounded">
-        <h2 className="text-xl font-semibold">Summary</h2>
-        <p>Amount Paid: $120</p>
-        <p>Amount Paid: ${amount}</p>
-<p>Payment Method: **** **** **** {cardEnding}</p>
-<p>Date: {date}</p>
+const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
+  const router = useRouter();
 
-      </div>      
-    );
-  };  
-
-export default ConfirmationScreen;
+  return (
+    <>
+      {/* existing content */}
+      <button
+        className="mt-6 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        onClick={() => router.push('/')}
+      >
+        Back to Home
+      </button>
+    </>
+  );
+};
