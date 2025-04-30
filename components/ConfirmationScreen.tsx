@@ -1,6 +1,18 @@
 import { useRouter } from 'next/router';
 import { Props } from 'next/script';
 
+const SummaryRow = ({ label, value }: { label: string; value: string }) => (
+    <div className="flex justify-between py-1">
+      <span className="font-medium">{label}</span>
+      <span>{value}</span>
+    </div>
+  );
+  
+  // inside summary:
+  <SummaryRow label="Amount Paid" value={`$${amount}`} />
+  <SummaryRow label="Payment Method" value={`**** ${cardEnding}`} />
+  <SummaryRow label="Date" value={date} />
+  
 const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
   const router = useRouter();
 
