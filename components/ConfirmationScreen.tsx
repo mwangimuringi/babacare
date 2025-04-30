@@ -1,5 +1,11 @@
 import React from 'react';
 
+type Props = {
+    amount: number;
+    cardEnding: string;
+    date: string;
+  };
+  
 const ConfirmationScreen = () => {
     return (
         <div className="mt-4 bg-gray-100 p-4 rounded">
