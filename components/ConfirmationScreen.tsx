@@ -6,6 +6,15 @@ const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
 
   return (
     <>
+
+      {/* existing content */}
+      <h1 className="text-6xl animate-bounce">✅</h1>
+      <h1 className="text-2xl">Your payment was successful!</h1>
+      <p className="text-xl">
+        Your card ending in {cardEnding} will expire on {date}
+      </p>
+      <p className="text-xl">
+        You have been charged {amount} for your monthly subscription.
       {/* existing content */}
       <h1 className="text-6xl animate-bounce">✅</h1>
       <button
