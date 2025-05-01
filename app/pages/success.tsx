@@ -1,7 +1,12 @@
 import Head from "next/head";
+
 import ConfirmationScreen from "@/components/ConfirmationScreen";
 
+import { useRouter } from 'next/router';
+
 const SuccessPage = () => {
+    const router = useRouter();
+  const { amount, cardEnding, date } = router.query;
   const hasError = false;
 
   if (hasError) {
