@@ -17,10 +17,11 @@ const SuccessPage = () => {
         <title>Payment Success - Babacare</title>
       </Head>
       <ConfirmationScreen
-        amount={120}
-        cardEnding="1234"
-        date={new Date().toLocaleDateString()}
-      />
+  amount={Number(amount) || 0}
+  cardEnding={String(cardEnding || '0000')}
+  date={String(date || new Date().toLocaleDateString())}
+/>
+
     </div>
   );
 };
