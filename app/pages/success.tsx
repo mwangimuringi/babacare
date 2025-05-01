@@ -4,6 +4,7 @@ import ConfirmationScreen from "@/components/ConfirmationScreen";
 const SuccessPage = () => {
   return (
     <>
+    <div className="flex flex-col min-h-screen justify-center items-center">
       <Head>
         <title>Payment Success - Babacare</title>
       </Head>
@@ -12,6 +13,7 @@ const SuccessPage = () => {
         cardEnding="1234"
         date={new Date().toLocaleDateString()}
       />
+      </div>
     </>
   );
 };
