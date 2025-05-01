@@ -1,14 +1,12 @@
 import Head from "next/head";
 import ConfirmationScreen from "@/components/ConfirmationScreen";
 
-
-
 const SuccessPage = () => {
-    const hasError = false;
-  
-    if (hasError) {
-      return <div>Error: Missing payment data.</div>;
-    }
+  const hasError = false;
+
+  if (hasError) {
+    return <div>Error: Missing payment data.</div>;
+  }
   return (
     <div className="flex flex-col min-h-screen justify-center items-center">
       <Head>
