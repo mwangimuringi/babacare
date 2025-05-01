@@ -10,6 +10,10 @@ const SuccessPage = () => {
   const { amount, cardEnding, date } = router.query;
   const hasError = false;
 
+  if (!router.isReady) {
+    return <div>Loading...</div>;
+  }
+  
   if (hasError) {
     return <div>Error: Missing payment data.</div>;
   }
