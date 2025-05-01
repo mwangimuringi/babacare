@@ -3,6 +3,8 @@ import Head from "next/head";
 
 import ConfirmationScreen from "@/components/ConfirmationScreen";
 
+const hasError = !amount || !cardEnding || !date;
+
 const SuccessPage = () => {
   const router = useRouter();
   const { amount, cardEnding, date } = router.query;
