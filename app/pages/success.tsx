@@ -1,7 +1,13 @@
 import ConfirmationScreen from '@/components/ConfirmationScreen';
 
 const SuccessPage = () => {
-  return <ConfirmationScreen amount={0} cardEnding="0000" date="N/A" />;
+    return (
+        <ConfirmationScreen
+          amount={120}
+          cardEnding="1234"
+          date={new Date().toLocaleDateString()}
+        />
+      );      
 };
 
 export default SuccessPage;
