@@ -8,6 +8,8 @@ const SuccessPage = () => {
   const { amount, cardEnding, date } = router.query as {
     amount?: string;
     cardEnding?: string;
+
+    
     date?: string;
   };
 
