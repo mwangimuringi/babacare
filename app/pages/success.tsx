@@ -9,6 +9,8 @@ const SuccessPage = () => {
     amount?: string;
     cardEnding?: string;
 
+
+
     
     date?: string;
   };
