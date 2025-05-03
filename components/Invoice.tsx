@@ -17,7 +17,14 @@ type InvoiceItem = {
     date,
     items,
   }) => {
-    return <div>Invoice #{invoiceNumber}</div>;
+    return (
+        <div>
+          <h1>Babacare</h1>
+          <p>Invoice #: {invoiceNumber}</p>
+          <p>Customer: {customerName}</p>
+          <p>Date: {date}</p>
+        </div>
+      );      
   };  
   
   export default Invoice;
