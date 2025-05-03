@@ -11,8 +11,6 @@ const SuccessPage = () => {
     amount?: string;
     cardEnding?: string;
     date?: string;
-    [key: string]: string | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   };
   
 
@@ -38,12 +36,9 @@ const SuccessPage = () => {
   return (
     <div className="flex flex-col min-h-screen justify-center items-center">
       <Head>
-        <title>Payment Success - Babacare</title>
-        <meta
-          name="description"
-          content="Your payment was successful. View your confirmation here."
-        />
-      </Head>
+  <title>Payment Success - Babacare</title>
+  <meta name="description" content="Your payment was successful. View your confirmation here." />
+</Head>
       <ConfirmationScreen
         amount={safeAmount}
         cardEnding={safeCardEnding}
