@@ -11,6 +11,14 @@ type InvoiceItem = {
     items: InvoiceItem[];
   };  
 
+  const total = items.reduce(
+    (sum, item) => sum + item.quantity * item.price,
+    0
+  );
+  
+  // At the end:
+  <p>Total: ${total.toFixed(2)}</p>  
+
   const Invoice: React.FC<InvoiceProps> = ({
     invoiceNumber,
     customerName,
