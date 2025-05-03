@@ -11,9 +11,14 @@ type InvoiceItem = {
     items: InvoiceItem[];
   };  
 
-const Invoice = () => {
-    return <div>Invoice Component</div>;
-  };
+  const Invoice: React.FC<InvoiceProps> = ({
+    invoiceNumber,
+    customerName,
+    date,
+    items,
+  }) => {
+    return <div>Invoice #{invoiceNumber}</div>;
+  };  
   
   export default Invoice;
   
