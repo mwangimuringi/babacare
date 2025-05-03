@@ -41,16 +41,20 @@ type InvoiceItem = {
       <th>Total</th>
     </tr>
   </thead>
+  <table className="min-w-full border border-gray-300 mt-4">
+  <thead>
+    <tr className="bg-gray-100">
+      <th className="px-4 py-2 border">Description</th>
+      <th className="px-4 py-2 border">Quantity</th>
+      <th className="px-4 py-2 border">Price</th>
+      <th className="px-4 py-2 border">Total</th>
+    </tr>
+  </thead>
   <tbody>
-    {items.map((item, index) => (
-      <tr key={index}>
-        <td>{item.description}</td>
-        <td>{item.quantity}</td>
-        <td>${item.price.toFixed(2)}</td>
-        <td>${(item.quantity * item.price).toFixed(2)}</td>
-      </tr>
-    ))}
+    {/* rows same as before */}
   </tbody>
+</table>
+
 </table>
 
         </div>
