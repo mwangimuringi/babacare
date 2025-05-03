@@ -57,6 +57,9 @@ type InvoiceItem = {
 </table>
 
 </table>
+<button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+  Download PDF
+</button>
 
         </div>
         </div>
