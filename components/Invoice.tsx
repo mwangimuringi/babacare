@@ -23,7 +23,30 @@ type InvoiceItem = {
           <p>Invoice #: {invoiceNumber}</p>
           <p>Customer: {customerName}</p>
           <p>Date: {date}</p>
+
+          <table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {items.map((item, index) => (
+      <tr key={index}>
+        <td>{item.description}</td>
+        <td>{item.quantity}</td>
+        <td>${item.price.toFixed(2)}</td>
+        <td>${(item.quantity * item.price).toFixed(2)}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
         </div>
+
       );      
   };  
   
