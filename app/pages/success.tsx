@@ -5,11 +5,16 @@ import ConfirmationScreen from '@/components/ConfirmationScreen';
 
 const SuccessPage = () => {
   const router = useRouter();
+  
+
   const { amount, cardEnding, date } = router.query as {
     amount?: string;
     cardEnding?: string;
     date?: string;
+    [key: string]: string | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   };
+  
 
   const safeAmount = Number(amount) || 0;
   const safeCardEnding = String(cardEnding || '0000');
