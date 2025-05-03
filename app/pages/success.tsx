@@ -8,10 +8,39 @@ const SuccessPage = () => {
   const { amount, cardEnding, date } = router.query as {
     amount?: string;
     cardEnding?: string;
+    date?: string;
+  };
 
+  const safeAmount = Number(amount) || 0;
+  const safeCardEnding = String(cardEnding || '0000');
+  const safeDate = String(date || new Date().toLocaleDateString());
 
+  if (!router.isReady) {
+    return <div>Loading...</div>;
+  }
 
-    
+  return (
+    <div className="flex flex-col min-h-screen justify-center items-center">
+      <Head>
+        <title>Payment Success - Babacare</title>
+        <meta
+          name="description"
+          content="Your payment was successful. View your confirmation here."
+        />
+      </Head>
+      <ConfirmationScreen
+        amount={safeAmount}
+        cardEnding={safeCardEnding}
+        date={safeDate}
+      />
+    </div>
+  );
+};
+
+export const getServerSideProps = async ({ req }) => {
+  const { amount, cardEnding, date } = req.query as {
+    amount?: string;
+    cardEnding?: string;
     date?: string;
   };
 
