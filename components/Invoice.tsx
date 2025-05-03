@@ -26,43 +26,21 @@ type InvoiceItem = {
     items,
   }) => {
     return (
-        <div className="max-w-2xl mx-auto bg-white p-6 shadow-lg rounded-lg">
-        <div>
-          <h1>Babacare</h1>
-          <p>Invoice #: {invoiceNumber}</p>
-          <p>Customer: {customerName}</p>
-          <p>Date: {date}</p>
+        <div className="grid grid-cols-2 gap-4 mb-4">
+  <div>
+    <p className="font-bold">Invoice #:</p>
+    <p>{invoiceNumber}</p>
+  </div>
+  <div>
+    <p className="font-bold">Date:</p>
+    <p>{date}</p>
+  </div>
+  <div>
+    <p className="font-bold">Customer:</p>
+    <p>{customerName}</p>
+  </div>
+</div>
 
-          <table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Total</th>
-    </tr>
-  </thead>
-  <table className="min-w-full border border-gray-300 mt-4">
-  <thead>
-    <tr className="bg-gray-100">
-      <th className="px-4 py-2 border">Description</th>
-      <th className="px-4 py-2 border">Quantity</th>
-      <th className="px-4 py-2 border">Price</th>
-      <th className="px-4 py-2 border">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    {/* rows same as before */}
-  </tbody>
-</table>
-
-</table>
-<button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
-  Download PDF
-</button>
-
-        </div>
-        </div>
       );      
   };  
   
