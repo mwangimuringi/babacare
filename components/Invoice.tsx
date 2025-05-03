@@ -15,6 +15,13 @@ type InvoiceItem = {
     (sum, item) => sum + item.quantity * item.price,
     0
   );
+
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+  
+  // Use in table:
+  <td>{formatCurrency(item.price)}</td>
+  <td>{formatCurrency(item.quantity * item.price)}</td>  
   
   // At the end:
   <p>Total: ${total.toFixed(2)}</p>  
