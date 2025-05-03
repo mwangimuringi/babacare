@@ -10,7 +10,10 @@ type InvoiceItem = {
     date: string;
     items: InvoiceItem[];
   };  
-
+  Invoice.defaultProps = {
+    items: [],
+  };
+  
   const total = items.reduce(
     (sum, item) => sum + item.quantity * item.price,
     0
