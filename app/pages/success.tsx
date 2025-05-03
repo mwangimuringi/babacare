@@ -5,7 +5,6 @@ import ConfirmationScreen from "@/components/ConfirmationScreen";
 
 const SuccessPage = () => {
   const router = useRouter();
-
   const { amount, cardEnding, date } = router.query as {
     amount?: string;
     cardEnding?: string;
