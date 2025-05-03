@@ -26,6 +26,7 @@ type InvoiceItem = {
     items,
   }) => {
     return (
+        <div className="max-w-2xl mx-auto bg-white p-6 shadow-lg rounded-lg">
         <div>
           <h1>Babacare</h1>
           <p>Invoice #: {invoiceNumber}</p>
@@ -58,7 +59,7 @@ type InvoiceItem = {
 </table>
 
         </div>
-
+        </div>
       );      
   };  
   
