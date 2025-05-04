@@ -48,9 +48,6 @@ const Invoice: React.FC<InvoiceProps> = ({
           <p>{customerName}</p>
         </div>
       </div>
-
-
-
       <table className="min-w-full border border-gray-300 mt-4">
         <thead>
           <tr className="bg-gray-100">
