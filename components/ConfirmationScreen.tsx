@@ -23,8 +23,6 @@ const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
       <h2 className="text-3xl font-bold">Thanks</h2>
       <p className="text-lg text-gray-600">Your was successful.</p>
       <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
-      <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
-      <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
 
       <div className="mt-4 w-full max-w-sm bg-gray-100 p-4 rounded shadow">
         <h3 className="text-xl font-semibold mb-2">Summary</h3>
