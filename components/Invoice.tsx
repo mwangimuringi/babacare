@@ -58,8 +58,6 @@ const Invoice: React.FC<InvoiceProps> = ({
           </tr>
         </thead>
         <tbody>
-
-          
           {items.map((item, index) => (
             <tr key={index}>
               <td className="px-4 py-2 border">{item.description}</td>
