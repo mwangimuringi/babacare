@@ -20,8 +20,10 @@ const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6 p-4">
       <h1 className="text-6xl animate-bounce text-green-700" aria-label="Payment Successful">✅</h1>
-      <h2 className="text-3xl font-bold">Thank You!</h2>
-      <p className="text-lg text-gray-600">Your payment was successful.</p>
+      <h2 className="text-3xl font-bold">Thanks</h2>
+      <p className="text-lg text-gray-600">Your was successful.</p>
+      <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
+      <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
       <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
 
       <div className="mt-4 w-full max-w-sm bg-gray-100 p-4 rounded shadow">
