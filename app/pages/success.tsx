@@ -11,6 +11,8 @@ const SuccessPage = () => {
     date?: string;
   };
 
+  
+
   const safeAmount = Number(amount) || 0;
   const safeCardEnding = String(cardEnding || "0000");
   const safeDate = String(date || new Date().toLocaleDateString());
