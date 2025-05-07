@@ -1,10 +1,16 @@
-type ReceiptProps = {
-  customerName: string;
-  amountPaid: number;
-  date: string;
-  receiptNumber: string;
-};
-
+type Item = {
+    description: string;
+    price: number;
+  };
+  
+  type ReceiptProps = {
+    customerName: string;
+    amountPaid: number;
+    date: string;
+    receiptNumber: string;
+    items: Item[];
+  };
+  
 export default function Receipt({
   customerName,
   amountPaid,
