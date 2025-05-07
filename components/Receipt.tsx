@@ -7,7 +7,7 @@ type ReceiptProps = {
   
   export default function Receipt({ customerName, amountPaid, date, receiptNumber }: ReceiptProps) {
     return (
-      <div>
+      <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px', maxWidth: '400px' }}>
         <h1>Receipt</h1>
         <p>Receipt #: {receiptNumber}</p>
         <p>Date: {date}</p>
