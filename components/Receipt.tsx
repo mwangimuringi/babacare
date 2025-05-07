@@ -26,12 +26,19 @@ export default function Receipt({
         maxWidth: "400px",
       }}
     >
-      <h2>Payment Receipt</h2>
-      <hr />
-      <p>Receipt #: {receiptNumber}</p>
-      <p>Date: {date}</p>
-      <p>Customer: {customerName}</p>
-      <p>Amount Paid: ${amountPaid.toFixed(2)}</p>
+      <p>
+        Subtotal: ${items.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
+      </p>
+      <p>
+        Tax: $
+        {(
+          amountPaid - items.reduce((sum, item) => sum + item.price, 0)
+        ).toFixed(2)}
+      </p>
+      <p>
+        <strong>Total: ${amountPaid.toFixed(2)}</strong>
+      </p>
+
       <table>
         <thead>
           <tr>
