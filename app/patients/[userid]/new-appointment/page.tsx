@@ -19,6 +19,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             alt="logo"
             className="mb-12 h-10 w-fit"
           />
+          
 
           <AppointmentForm
             patientId={patient?.$id}
