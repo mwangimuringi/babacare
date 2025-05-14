@@ -48,6 +48,8 @@ export const PatientForm = () => {
         alert("Failed to create user. Please try again.");
         return;
       }
+      console.log("User ID:", newUser.$id);
+      setIsLoading(false);
 
       router.push(`/patients/${newUser.$id}/register`);
     } catch (error) {
