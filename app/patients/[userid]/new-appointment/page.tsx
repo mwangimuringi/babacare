@@ -12,6 +12,15 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
+        <div className="top-container max-w-[860px] flex-1 justify-between">
+          <div className="patient-info">
+            <h1 className="patient-name text-2xl font-bold">
+              {patient?.firstName} {patient?.lastName}
+            </h1>
+            <p className="patient-id text-xl font-bold">
+              {patient?.$id}
+            </p>
+          </div>
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
             src={`/assets/icons/logo-full.svg`}
