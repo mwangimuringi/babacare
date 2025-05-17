@@ -54,9 +54,6 @@ export const PatientForm = () => {
       router.push(`/patients/${newUser.$id}/register`);
     } catch (error) {
       console.error("Error during form submission:", error);
-
-      
-
       if (error instanceof Error) {
         alert(error.message);
         return;
