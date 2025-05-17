@@ -20,6 +20,7 @@ const IdentificationSection = ({ control }: { control: Control<FormData> }) => (
         placeholder="Select identification type"
       />
     </div>
+
     <div>
       <Label htmlFor="identificationNumber">Identification Number</Label>
       <CustomFormField
@@ -30,6 +31,7 @@ const IdentificationSection = ({ control }: { control: Control<FormData> }) => (
         placeholder="1234567890"
       />
     </div>
+
   </section>
 );
 
