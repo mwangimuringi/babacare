@@ -110,6 +110,8 @@ export const AppointmentForm = ({
           appointmentId: appointment.$id!,
           timeZone,
           appointment: {
+            primaryPhysician: values.primaryPhysician || "",
+            schedule: new Date(values.schedule) || new Date(Date.now()),
             primaryPhysician: values.primaryPhysician,
             schedule: new Date(values.schedule),
             status,
