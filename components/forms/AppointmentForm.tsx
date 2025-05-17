@@ -157,7 +157,6 @@ export const AppointmentForm = ({
           name="primaryPhysician"
           label="Doctor"
           placeholder="Select a doctor"
-          h
         >
           {Doctors.map((doctor, i) => (
             <SelectItem key={doctor.name + i} value={doctor.name}>
