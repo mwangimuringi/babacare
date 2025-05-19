@@ -65,9 +65,6 @@ const Invoice: React.FC<InvoiceProps> = ({
               <td className="px-4 py-2 border">
                 {formatCurrency(item.price)}
               </td>
-              <td className="px-4 py-2 border">
-                {formatCurrency(item.quantity * item.price)}
-              </td>
             </tr>
           {items.map((item, index) => (
             <tr key={index}>
