@@ -75,7 +75,6 @@ const Invoice: React.FC<InvoiceProps> = ({
 
       <p className="text-right font-bold mt-4">
         Total: {formatCurrency(total)} USD
-        Total: {formatCurrency(total)}
       </p>
 
       <div className="flex space-x-2 mt-4">
