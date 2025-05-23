@@ -84,6 +84,14 @@ export default function Receipt({
         Download PDF
       </button>
 
+      <hr className="mt-4" />
+      <p className="text-xs text-gray-500 mt-4">
+        If you have any questions, please contact us at
+        <a href="mailto:support@example.com" className="text-blue-600 hover:text-blue-800">
+          support@example.com
+        </a>
+      </p>
+
       <p className="text-xs text-gray-500 mt-4">Thank you for your purchase!</p>
     </div>
   );
