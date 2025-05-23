@@ -36,6 +36,10 @@ export default function Receipt({
 
       <hr className="my-4" />
 
+      <p className="text-sm">Items</p>
+      <hr className="my-2" />
+      <p className="text-sm font-bold">Subtotal</p>
+
       <table className="w-full text-sm mt-4 border-t pt-2">
         <thead>
           <tr>
