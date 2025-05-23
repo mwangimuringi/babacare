@@ -34,6 +34,8 @@ export default function Receipt({
       <p><strong>Date:</strong> {new Date(date).toLocaleDateString()}</p>
       <p><strong>Customer:</strong> {customerName}</p>
 
+      <hr className="my-4" />
+
       <table className="w-full text-sm mt-4 border-t pt-2">
         <thead>
           <tr>
