@@ -47,6 +47,10 @@ export const StatusBadge = ({ status }: { status: Status }) => {
             "text-blue-500": status === "pending",
             "text-red-500": status === "cancelled",
           })}
+          style={{ marginTop: "-0.5rem" }}
+        >
+          {status}
+        </p>
       </div>
       <Image
         src={StatusIcon[status]}
