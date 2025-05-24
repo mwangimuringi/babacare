@@ -30,8 +30,6 @@ export const StatusBadge = ({ status }: { status: Status }) => {
         >
           {status}
         </p>
-        <div className="absolute top-0 right-0 h-full w-full rounded-full bg-white/50 backdrop-blur-sm" />
-        <div className="absolute top-0 right-0 h-full w-full rounded-full bg-white/50 backdrop-blur-sm" />
       </div>
       <Image
         src={StatusIcon[status]}
