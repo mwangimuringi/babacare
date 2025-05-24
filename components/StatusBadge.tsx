@@ -33,26 +33,6 @@ export const StatusBadge = ({ status }: { status: Status }) => {
         <div className="absolute top-0 right-0 h-full w-full rounded-full bg-white/50 backdrop-blur-sm" />
         <div className="absolute top-0 right-0 h-full w-full rounded-full bg-white/50 backdrop-blur-sm" />
       </div>
-      <div className="status-badge-icon">
-        <Image
-          src={StatusIcon[status]}
-          alt="doctor"
-          width={24}
-          height={24}
-          className="h-fit w-3"
-        />
-        <p
-          className={clsx("text-12-semibold capitalize", {
-            "text-green-500": status === "scheduled",
-            "text-blue-500": status === "pending",
-            "text-red-500": status === "cancelled",
-          })}
-          style={{ marginTop: "-0.5rem" }}
-        >
-          {status}
-        </p>
-        <div className="absolute top-0 right-0 h-full w-full rounded-full bg-white/50 backdrop-blur-sm" />
-      </div>
       <Image
         src={StatusIcon[status]}
         alt="doctor"
