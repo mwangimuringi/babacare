@@ -13,6 +13,15 @@ export const StatusBadge = ({ status }: { status: Status }) => {
         "bg-red-600": status === "cancelled",
       })}
     >
+      <div className="status-badge-icon">
+        <Image
+          src={StatusIcon[status]}
+          alt="doctor"
+          width={24}
+          height={24}
+          className="h-fit w-3"
+        />
+      </div>
       <Image
         src={StatusIcon[status]}
         alt="doctor"
