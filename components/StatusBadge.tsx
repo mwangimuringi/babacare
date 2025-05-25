@@ -35,8 +35,6 @@ export const StatusBadge = ({ status }: { status: Status }) => {
       <Image
         src={StatusIcon[status]}
         alt="doctor"
-
-        
         width={24}
         height={24}
         className="h-fit w-3"
