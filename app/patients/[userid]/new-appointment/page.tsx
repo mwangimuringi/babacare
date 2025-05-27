@@ -36,6 +36,10 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
               className="search-input"
             />
           </div>
+
+          <div className="profile-container">
+            
+          </div>
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
             src={`/assets/icons/logo-full.svg`}
