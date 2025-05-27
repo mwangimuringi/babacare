@@ -37,11 +37,6 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             />
           </div>
           </div>
-        
-        {/* Appointment Form */}
-        <AppointmentForm />
-      </section>
-    </div>
   );
 {"}"};
 
