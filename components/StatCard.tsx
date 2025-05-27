@@ -12,6 +12,8 @@ export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
         "bg-cancelled": type === "cancelled",
       })}
     >
+
+      
       <div className="flex items-center gap-4">
         <Image
           src={icon}
