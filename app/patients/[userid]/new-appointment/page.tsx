@@ -21,6 +21,21 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
               {patient?.$id}
             </p>
           </div>
+
+          <div className="search-container">
+            <Image
+              src={`/assets/icons/search.svg`}
+              height={24}
+              width={24}
+              alt="search"
+              className="search-icon"
+            />
+            <input
+              type="text"
+              placeholder="Search"
+              className="search-input"
+            />
+          </div>
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
             src={`/assets/icons/logo-full.svg`}
