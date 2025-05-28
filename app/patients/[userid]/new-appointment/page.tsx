@@ -1,61 +1,11 @@
-import Image from "next/image";
+import { useState } from "react";
+import { useForm } from "@remix-run/react";
+import { useNavigate } from "react-router-dom";
+import { useFetcher } from "@remix-run/react";
+import { useFetcher as useFetcher2 } from "@remix-run/react";
+import { useFetcher as useFetcher3 } from "@remix-run/react";                       
 
-import { getPatient } from "@/lib/actions/patient.actions";
-import { AppointmentForm } from "@/components/forms/AppointmentForm";
-import { SearchParamProps } from "@/types/index.d"; 
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
-const Appointment = async ({ params: { userId } }: SearchParamProps) => {
-  const patient = await getPatient(userId);
-
-  return (
-    <div className="flex h-screen max-h-screen">
-      <div className="left-container flex-1 flex flex-col">
-        <div className="top-container max-w-[860px] flex-1 justify-between">
-          <div className="patient-info">
-            <h1 className="patient-name text-2xl font-bold">
-              {patient?.firstName} {patient?.lastName}
-            </h1>
-            <p className="patient-id text-xl font-bold">
-              {patient?.$id}
-            </p>
-          </div>
-        </div>
-            <Image
-              src={`/assets/icons/search.svg`}
-              height={24}
-              width={24}
-              alt="search"
-              className="search-icon"
-            />
-            <input
-      <section className="remove-scrollbar container my-auto">
-        <div className="top-container max-w-[860px] flex-1 justify-between">
-          <div className="patient-info">
-            <h1 className="patient-name text-2xl font-bold">
-              {patient?.firstName} {patient?.lastName}
-            </h1>
-            <p className="patient-id text-xl font-bold">
-              {patient?.$id}
-            </p>
-          </div>
-
-          <div className="search-container">
-            <Image
-              src={`/assets/icons/search.svg`}
-              height={24}
-              width={24}
-              alt="search"
-              className="search-icon"
-            />
-            <input
-              type="text"
-              placeholder="Search"
-              className="search-input"
-            />
-          </div>
-          </div>
-{"}"};
-
-export default Appointment;
+import { useFetcher as useFetcher4 } from "@remix-run/react";
+import { useFetcher as useFetcher5 } from "@remix-run/react";
+import { useFetcher as useFetcher6 } from "@remix-run/react";
