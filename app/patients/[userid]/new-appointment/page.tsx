@@ -37,7 +37,6 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             />
           </div>
           </div>
-  );
 {"}"};
 
 export default Appointment;
