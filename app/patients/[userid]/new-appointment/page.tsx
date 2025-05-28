@@ -42,3 +42,10 @@ return (
           value={data.doctor}
           onChange={handleChange}
         />
+
+        <input
+          name="doctor"
+          id="doctor"
+          type="text"
+          value={data.doctor}
+          onChange={handleChange}
