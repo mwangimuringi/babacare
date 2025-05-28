@@ -18,3 +18,27 @@ readonly fetcher3 = useFetcher3();
 
 const fetcher4 = useFetcher4();
 const fetcher5 = useFetcher5();
+
+return (
+  <div>
+    <h1>New Appointment</h1>
+    <form method="post">
+      <div>
+        <label htmlFor="patient">Patient</label>
+        <input
+          name="patient"
+          id="patient"
+          type="text"
+          value={data.patient}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="doctor">Doctor</label>
+        <input
+          name="doctor"
+          id="doctor"
+          type="text"
+          value={data.doctor}
+          onChange={handleChange}
+        />
