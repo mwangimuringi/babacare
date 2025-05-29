@@ -17,6 +17,8 @@ const NewAppointmentPage = () => {
   if (!patientId) {
     return <div>Loading...</div>;
   }
+
+  // const patient = await getPatientById(patientId);
   return <div>
     <h1>New Appointment</h1>
     <p>Patient ID: {patientId}</p>
