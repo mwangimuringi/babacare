@@ -15,6 +15,8 @@ const NewAppointmentPage = () => {
   }, [router.query.patientId]);
   return <div>
     <h1>New Appointment</h1>
+    <p>Patient ID: {patientId}</p>
+    <p>This is the new appointment page.</p>
   </div>;
 };
 
