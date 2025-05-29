@@ -13,6 +13,10 @@ const NewAppointmentPage = () => {
     }
     setPatientId(patientId);
   }, [router.query.patientId]);
+
+  if (!patientId) {
+    return <div>Loading...</div>;
+  }
   return <div>
     <h1>New Appointment</h1>
     <p>Patient ID: {patientId}</p>
