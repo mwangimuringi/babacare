@@ -13,7 +13,9 @@ const NewAppointmentPage = () => {
     }
     setPatientId(patientId);
   }, [router.query.patientId]);
-  return <div>New Appointment Page</div>;
+  return <div>
+    <h1>New Appointment</h1>
+  </div>;
 };
 
 export default NewAppointmentPage;
