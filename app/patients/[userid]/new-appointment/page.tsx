@@ -7,6 +7,10 @@ const NewAppointmentPage = () => {
 
   useEffect(() => {
     const patientId = router.query.patientId as string;
+    console.log("patientId", patientId);
+    if (!patientId) {
+      router.push("/patients");
+    }
     setPatientId(patientId);
   }, [router.query.patientId]);
   return <div>New Appointment Page</div>;
