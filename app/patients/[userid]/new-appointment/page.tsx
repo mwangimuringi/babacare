@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NewAppointmentPage = () => {
   const [patientId, setPatientId] = useState<string>("");
