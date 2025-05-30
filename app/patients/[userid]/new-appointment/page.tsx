@@ -37,6 +37,9 @@ const NewAppointmentPage = () => {
       <button onClick={() => router.push(`/patients/${patientId}`)}>
         Go to Patient Page
       </button>
+      <button onClick={() => router.push(`/patients/${patientId}/new-appointment`)}>
+        Go to Patient Page
+      </button>
     </div>
   );
 };
