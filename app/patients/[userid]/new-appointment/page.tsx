@@ -21,7 +21,10 @@ const NewAppointmentPage = () => {
   }, [searchParams, router]); // Depend on searchParams instead of router.query
 
   if (!patientId) {
-    return <div>Loading...</div>;
+    return <div>
+      Loading...
+      <p>This is the new appointment page.</p>
+    </div>;
   }
 
   return (
