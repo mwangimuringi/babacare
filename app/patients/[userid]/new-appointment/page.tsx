@@ -11,7 +11,7 @@ const NewAppointmentPage = () => {
   useEffect(() => {
     const patientId = searchParams.get("patientId"); // Use searchParams.get() instead of router.query
     console.log("patientId", patientId);
-    
+
     if (!patientId) {
       router.push("/patients");
     } else {
