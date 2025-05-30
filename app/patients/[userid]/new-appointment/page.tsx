@@ -1,6 +1,13 @@
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { useRouter } from 'next/router';
+
+function MyComponent() {
+  const router = useRouter();
+  const { queryParam } = router.query; // Access query params like this
+  
+  // ...
+}
 const NewAppointmentPage = () => {
   const [patientId, setPatientId] = useState<string>("");
   const router = useRouter();
