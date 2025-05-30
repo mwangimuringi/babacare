@@ -24,6 +24,7 @@ const NewAppointmentPage = () => {
     return <div>
       Loading...
       <p>This is the new appointment page.</p>
+      <p>You can access the patient page by clicking the button below.</p>
     </div>;
   }
 
