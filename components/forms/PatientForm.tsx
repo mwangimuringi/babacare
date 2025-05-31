@@ -25,7 +25,6 @@ export const PatientForm = () => {
       name: "",
       email: "",
       phone: "",
-      gender: "",
       birthDate: "",
     },
   });
