@@ -24,7 +24,8 @@ export const PatientForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
+      phone: "",\
+      
     },
   });
 
