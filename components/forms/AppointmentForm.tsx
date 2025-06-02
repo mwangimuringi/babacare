@@ -82,7 +82,7 @@ export const AppointmentForm = ({
     values: z.infer<typeof AppointmentFormValidation>
   ): Promise<void> => {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const status = determineStatus(type); // Use the utility function here
+    const status = determineStatus(type); 
 
     try {
       if (type === "create" && patientId) {
