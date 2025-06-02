@@ -96,8 +96,6 @@ export const AppointmentForm = ({
           note: values.note,
         };
 
-        console.log("Appointment object:", appointment);
-
         const newAppointment = await createAppointment(appointment);
 
         if (newAppointment) {
