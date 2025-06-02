@@ -118,9 +118,6 @@ export const AppointmentForm = ({
           type,
         };
 
-        console.log("Appointment to update:", appointmentToUpdate);
-        console.log("Type:", type);
-
         const updatedAppointment = await updateAppointment(appointmentToUpdate);
 
         if (updatedAppointment) {
