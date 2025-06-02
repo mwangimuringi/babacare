@@ -136,6 +136,8 @@ export const AppointmentForm = ({
     }
   };
 
+  
+
   const renderFormFields = () => {
     if (type === "cancel") {
       return (
