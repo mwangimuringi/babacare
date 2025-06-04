@@ -82,7 +82,7 @@ export const AppointmentForm = ({
     values: z.infer<typeof AppointmentFormValidation>
   ): Promise<void> => {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const status = determineStatus(type); 
+    const status = determineStatus(type);
 
     try {
       if (type === "create" && patientId) {
@@ -117,7 +117,6 @@ export const AppointmentForm = ({
           },
           type,
         };
-
 
         const updatedAppointment = await updateAppointment(appointmentToUpdate);
 
@@ -185,8 +184,9 @@ export const AppointmentForm = ({
         />
 
         <div
-          className={`flex flex-col gap-6 ${type === "create" && "xl:flex-row"
-            }`}
+          className={`flex flex-col gap-6 ${
+            type === "create" && "xl:flex-row"
+          }`}
         >
           <CustomFormField
             fieldType={FormFieldType.TEXTAREA}
