@@ -118,6 +118,7 @@ export const AppointmentForm = ({
           type,
         };
 
+
         const updatedAppointment = await updateAppointment(appointmentToUpdate);
 
         if (updatedAppointment) {
@@ -135,7 +136,6 @@ export const AppointmentForm = ({
       }
     }
   };
-  
 
   const renderFormFields = () => {
     if (type === "cancel") {
