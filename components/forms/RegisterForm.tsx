@@ -34,7 +34,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   });
 
   // TODO: Add validation for required fields
-  // 
+ 
   const onSubmit = async (values: FormData) => {
     setIsLoading(true);
     try {
