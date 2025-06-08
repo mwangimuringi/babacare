@@ -51,6 +51,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   const onSubmit = async (values: FormData) => {
     setIsLoading(true);
     try {
+      // TODO: Add validation for required fields
       const patient = createPatientObject(values, user);
       const newPatient = await registerPatient(patient);
 
