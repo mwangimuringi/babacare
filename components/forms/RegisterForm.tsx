@@ -34,7 +34,12 @@ const RegisterForm = ({ user }: { user: User }) => {
   });
 
   // TODO: Add validation for required fields
-  
+
+  const validatePhone = (value: string) => {
+    if (!value.match(/^\+[0-9]{2,3}\s[0-9]{3,4}[0-9]{4}$/)) {
+      return "Invalid phone number";
+    }
+  };
   // TODO: Add validation for email format
  
   const onSubmit = async (values: FormData) => {
