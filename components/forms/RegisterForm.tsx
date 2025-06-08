@@ -46,6 +46,7 @@ const RegisterForm = ({ user }: { user: User }) => {
   // TODO: Add validation for email format
  
   form.register("email", { required: true });
+  form.register("address", { required: true });
   const onSubmit = async (values: FormData) => {
     setIsLoading(true);
     try {
