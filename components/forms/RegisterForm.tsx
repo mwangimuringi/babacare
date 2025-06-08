@@ -61,6 +61,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         console.error("Failed to create new patient. Check the API.");
       }
     } catch (error: any) {
+      // TODO: Add error handling
       console.error(
         "Error during patient registration:",
         error.message || error
