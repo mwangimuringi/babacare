@@ -70,6 +70,9 @@ const RegisterForm = ({ user }: { user: User }) => {
       setIsLoading(false);
     }
   };
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Form {...form}>
