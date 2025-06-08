@@ -47,6 +47,9 @@ const RegisterForm = ({ user }: { user: User }) => {
  
   form.register("email", { required: true });
   form.register("address", { required: true });
+  
+    form.register("city", { required: true });
+    form.register("state", { required: true });
   const onSubmit = async (values: FormData) => {
     setIsLoading(true);
     try {
