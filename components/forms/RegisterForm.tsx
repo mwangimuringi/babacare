@@ -40,6 +40,8 @@ const RegisterForm = ({ user }: { user: User }) => {
       return "Invalid phone number";
     }
   };
+
+  form.register("phone", { required: true, validate: validatePhone });
   // TODO: Add validation for email format
  
   const onSubmit = async (values: FormData) => {
