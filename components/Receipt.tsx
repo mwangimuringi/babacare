@@ -84,6 +84,8 @@ export default function Receipt({
         Download PDF
       </button>
 
+      
+      <a href="mailto:"></a>
       <hr className="mt-4" />
       <p className="text-xs text-gray-500 mt-4">
         If you have any questions, please contact us at
