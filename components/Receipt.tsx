@@ -1,6 +1,6 @@
 // components/Receipt.tsx
 
-import React from 'react';
+import React from "react";
 
 export type Item = {
   description: string;
@@ -30,16 +30,21 @@ export default function Receipt({
       <h2 className="text-xl font-semibold mb-2">Payment Receipt</h2>
       <hr className="mb-4" />
 
-      <p><strong>Receipt #:</strong> {receiptNumber}</p>
-      <p><strong>Date:</strong> {new Date(date).toLocaleDateString()}</p>
-      <p><strong>Customer:</strong> {customerName}</p>
+      <p>
+        <strong>Receipt #:</strong> {receiptNumber}
+      </p>
+      <p>
+        <strong>Date:</strong> {new Date(date).toLocaleDateString()}
+      </p>
+      <p>
+        <strong>Customer:</strong> {customerName}
+      </p>
 
       <hr className="my-4" />
 
       <p className="text-sm">Items</p>
       <hr className="my-2" />
       <p className="text-sm font-bold">Subtotal</p>
-
 
       <hr className="my-2" />
       <p className="text-sm font-bold">Tax</p>
@@ -48,12 +53,11 @@ export default function Receipt({
       <p className="text-sm font-bold">Total</p>
       <hr className="my-4" />
 
+      <p className="text-sm">Items</p>
+      <hr className="my-2" />
+      <p className="text-sm font-bold">Subtotal</p>
 
-        <p className="text-sm">Items</p>
-        <hr className="my-2" />
-        <p className="text-sm font-bold">Subtotal</p>
-        
-          {/* <hr className="my-2" />
+      {/* <hr className="my-2" />
           <p className="text-sm font-bold">Tax</p>
           
             */}
@@ -75,21 +79,29 @@ export default function Receipt({
       </table>
 
       <div className="mt-4 text-sm">
-        <p><strong>Subtotal:</strong> ${subtotal.toFixed(2)}</p>
-        <p><strong>Tax:</strong> ${tax.toFixed(2)}</p>
-        <p className="font-bold"><strong>Total:</strong> ${amountPaid.toFixed(2)}</p>
+        <p>
+          <strong>Subtotal:</strong> ${subtotal.toFixed(2)}
+        </p>
+        <p>
+          <strong>Tax:</strong> ${tax.toFixed(2)}
+        </p>
+        <p className="font-bold">
+          <strong>Total:</strong> ${amountPaid.toFixed(2)}
+        </p>
       </div>
 
       <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
         Download PDF
       </button>
 
-      
       <a href="mailto:"></a>
       <hr className="mt-4" />
       <p className="text-xs text-gray-500 mt-4">
         If you have any questions, please contact us at
-        <a href="mailto:support@example.com" className="text-blue-600 hover:text-blue-800">
+        <a
+          href="mailto:support@example.com"
+          className="text-blue-600 hover:text-blue-800"
+        >
           support@example.com
         </a>
       </p>
