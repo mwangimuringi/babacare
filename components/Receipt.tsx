@@ -87,7 +87,9 @@ export default function Receipt({
           className="ml-2 h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
-        ></svg>
+        >
+          <i></i>
+        </svg>
       </button>
 
       <hr className="mt-4" />
