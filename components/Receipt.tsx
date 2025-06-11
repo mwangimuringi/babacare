@@ -104,6 +104,7 @@ export default function Receipt({
         >
           support@example.com
         </a>
+        
       </p>
 
       <p className="text-xs text-gray-500 mt-4">Thank you for your purchase!</p>
