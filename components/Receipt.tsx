@@ -104,7 +104,9 @@ export default function Receipt({
         >
           support@example.com
         </a>
-        
+        <li>
+          <a href="tel:+1-555-555-5555">+1-555-555-5555</a>
+        </li>
       </p>
 
       <p className="text-xs text-gray-500 mt-4">Thank you for your purchase!</p>
