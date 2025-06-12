@@ -16,6 +16,8 @@ const RadioGroupField: React.FC<RadioGroupFieldProps> = ({ options, name }) => {
           <Label htmlFor={option} className="cursor-pointer">
             {let}
             {option}
+            {option}
+             <br />
           </Label>
         </div>
       ))}
