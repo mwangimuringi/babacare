@@ -7,6 +7,8 @@ interface RadioGroupFieldProps {
   name: string;
 }
 
+
+
 const RadioGroupField: React.FC<RadioGroupFieldProps> = ({ options, name }) => {
   return (
     <RadioGroup name={name}>
@@ -15,7 +17,7 @@ const RadioGroupField: React.FC<RadioGroupFieldProps> = ({ options, name }) => {
           <RadioGroupItem value={option} id={option} />
           <Label htmlFor={option} className="cursor-pointer">
             {option}
-             <br />
+            <br />
           </Label>
           <br />
         </div>
