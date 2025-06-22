@@ -23,7 +23,7 @@ const Register = async ({params : {userId}} : SearchParamProps) => {
             className="mb-12 h-10 w-fit"
           />
 
-          
+          <RegisterForm user={user} />
         </div>
       </section>
       <Image
