@@ -7,8 +7,6 @@ interface RadioGroupFieldProps {
   name: string;
 }
 
-
-
 const RadioGroupField: React.FC<RadioGroupFieldProps> = ({ options, name }) => {
   return (
     <RadioGroup name={name}>
