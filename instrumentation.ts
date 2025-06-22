@@ -7,3 +7,5 @@ export async function register() {
     await import('./sentry.edge.config');
   }
 }
+
+export async function setupOnce() 
