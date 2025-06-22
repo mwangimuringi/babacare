@@ -17,7 +17,8 @@ export async function setupOnce() {
     await import('./sentry.edge.config');
   }
 
+  // ...
   // TODO: add other setups
   // ...
-  
+
 }
