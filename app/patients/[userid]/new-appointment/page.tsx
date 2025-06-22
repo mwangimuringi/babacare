@@ -1,3 +1,4 @@
+
 "use client"; // Required for client-side hooks (useSearchParams)
 
 import { useSearchParams, useRouter } from "next/navigation";

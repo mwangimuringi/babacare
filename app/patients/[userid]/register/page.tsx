@@ -24,7 +24,10 @@ const Register = async ({params : {userId}} : SearchParamProps) => {
           />
 
           <RegisterForm user = {user}/>
-
+          <h1>Register</h1>
+            <p className="text-sm">
+              Already have an account? <a href="/login">Sign in</a>
+            </p>
             <p className="copyright py-12">
               © 2024 CarePulse
             </p>
