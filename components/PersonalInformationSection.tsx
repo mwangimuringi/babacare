@@ -27,6 +27,8 @@ const PersonalInformationSection = ({
       />
     </div>
 
+
+
     <div className="flex flex-col gap-6 xl:flex-row">
       <div>
         <Label htmlFor="email">Email address</Label>
