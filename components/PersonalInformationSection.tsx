@@ -17,6 +17,7 @@ const PersonalInformationSection = ({ control }: { control: Control<FormData> })
       <CustomFormField id="name" fieldType={FormFieldType.INPUT} control={control} name="name" placeholder="John Doe" />
     </div>
 
+  
     <div className="flex flex-col gap-6 xl:flex-row">
       <div>
         <Label htmlFor="email">Email address</Label>
