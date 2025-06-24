@@ -103,8 +103,6 @@ export default function Receipt({
           className="text-blue-600 hover:text-blue-800"
         >
           support@example.com
-
-          
         </a>
       </p>
 
