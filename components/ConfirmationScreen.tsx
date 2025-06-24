@@ -1,5 +1,5 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useRouter } from "next/router";
 
 type Props = {
   amount: number;
@@ -19,7 +19,12 @@ const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6 p-4">
-      <h1 className="text-6xl animate-bounce text-green-700" aria-label="Payment Successful">✅</h1>
+      <h1
+        className="text-6xl animate-bounce text-green-700"
+        aria-label="Payment Successful"
+      >
+        ✅
+      </h1>
       <h2 className="text-3xl font-bold">Thanks</h2>
       <p className="text-lg text-gray-600">Your was successful.</p>
       <p className="text-sm text-gray-500">We’ve emailed you the receipt.</p>
@@ -32,12 +37,10 @@ const ConfirmationScreen: React.FC<Props> = ({ amount, cardEnding, date }) => {
       </div>
 
       <button
-        onClick={() => router.push('/')}
+        onClick={() => router.push("/")}
         className="mt-6 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
       >
         Back to Home
-
-        
       </button>
     </div>
   );
